@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS ssb.board;
+DROP TABLE IF EXISTS ssb.board CASCADE;
 
 CREATE TABLE IF NOT EXISTS ssb.board 
 (

@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS ssb.games
   id            VARCHAR(6) NOT NULL,
   level        VARCHAR(6) NOT NULL,
   cell          VARCHAR(6) NOT NULL,
-  values        VARCHAR(6)
+  values        VARCHAR(6),
+  counter       SMALLINT 
 );
 
 ------------------------------------------
