@@ -1,21 +1,3 @@
-
-CREATE FUNCTION f_get_values (VARCHAR, VARCHAR)
-  returns VARCHAR
-STABLE
-AS $$
-  SELECT CASE WHEN STRPOS($2,'1')<1 AND LEN(REPLACE($2,',',''))=8 THEN '1'
-			  WHEN STRPOS($2,'2')<1 AND LEN(REPLACE($2,',',''))=8 THEN '2'
-			  WHEN STRPOS($2,'3')<1 AND LEN(REPLACE($2,',',''))=8 THEN '3'
-			  WHEN STRPOS($2,'4')<1 AND LEN(REPLACE($2,',',''))=8 THEN '4'
-			  WHEN STRPOS($2,'5')<1 AND LEN(REPLACE($2,',',''))=8 THEN '5'
-			  WHEN STRPOS($2,'6')<1 AND LEN(REPLACE($2,',',''))=8 THEN '6'
-			  WHEN STRPOS($2,'7')<1 AND LEN(REPLACE($2,',',''))=8 THEN '7'
-			  WHEN STRPOS($2,'8')<1 AND LEN(REPLACE($2,',',''))=8 THEN '8'
-			  WHEN STRPOS($2,'9')<1 AND LEN(REPLACE($2,',',''))=8 THEN '9'			  
-			  ELSE $1
-		END
-$$ LANGUAGE SQL;
-
 ---------------------------------------------
 DROP TABLE IF EXISTS ssb.game_peers CASCADE;
 
@@ -47,6 +29,7 @@ DROP TABLE IF EXISTS ssb.t_games_1  CASCADE;
 CREATE TABLE ssb.t_games_1 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -57,6 +40,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -110,6 +94,7 @@ DROP TABLE IF EXISTS ssb.t_games_2  CASCADE;
 CREATE TABLE ssb.t_games_2 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -120,6 +105,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -173,6 +159,7 @@ DROP TABLE IF EXISTS ssb.t_games_3  CASCADE;
 CREATE TABLE ssb.t_games_3 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -183,6 +170,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -236,6 +224,7 @@ DROP TABLE IF EXISTS ssb.t_games_4  CASCADE;
 CREATE TABLE ssb.t_games_4 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -246,6 +235,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -298,6 +288,7 @@ DROP TABLE IF EXISTS ssb.t_games_5  CASCADE;
 CREATE TABLE ssb.t_games_5 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -308,6 +299,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -361,6 +353,7 @@ DROP TABLE IF EXISTS ssb.t_games_6  CASCADE;
 CREATE TABLE ssb.t_games_6 
 AS  SELECT 
 	F.id,
+	F.level,
 	F.cell,
 	F.values,
 	CASE WHEN LEN(F.values_0)=0 AND LEN(F.values)!=0 THEN F.max_counter+1
@@ -371,6 +364,7 @@ FROM
 (
 	SELECT 
 		D.id,
+		E.level,
 		D.cell,
 		E.counter,
 		E.values AS values_0, 
@@ -400,3 +394,4 @@ FROM
 		D.id=E.id
 	)
 )F;
+
