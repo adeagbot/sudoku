@@ -23,7 +23,7 @@ FROM
 		SUBSTRING(cell,1,1) AS row,
 		listagg(DISTINCT (cell||'-'||f_missing_values(values,peer_list)),',') 
 		within GROUP (ORDER BY cell) AS col 
-	FROM ssb.t_games_6 
+	FROM ssb.t_games_7 
 	GROUP BY id,level, SUBSTRING(cell,1,1)
 )A;
 
