@@ -1,4 +1,7 @@
-
+---constraint propagations 
+--(1) If a square has only one possible value, then eliminate that value from the square's peers. 
+---(2) If a unit has only one possible place for a value, then put the value there.
+--https://norvig.com/sudoku.html
 CREATE OR REPLACE FUNCTION f_get_values (VARCHAR, VARCHAR)
   returns VARCHAR
 STABLE
