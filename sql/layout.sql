@@ -1,7 +1,7 @@
 -----------------------------------
 DROP TABLE IF EXISTS ssb.layout  CASCADE;
 
-CREATE TABLE ssb.layout 
+CREATE TABLE ssb.layout DISTSTYLE ALL SORTKEY (id) 
 AS SELECT 
 	A.id, 
 	A.level,

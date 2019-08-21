@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS ssb.games CASCADE;
 
-CREATE TABLE IF NOT EXISTS ssb.games 
+CREATE TABLE IF NOT EXISTS ssb.games DISTSTYLE ALL SORTKEY (id) 
 (
   id            VARCHAR(6) NOT NULL,
   level        VARCHAR(6) NOT NULL,
